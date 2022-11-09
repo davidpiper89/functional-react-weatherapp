@@ -5,7 +5,7 @@ import Icon from "./Icon"
 
 const Weathers = (props) => {
   return props.weathers.map((weather) =>(
-    <div>
+    <div key={weather.dt}>
       <Temp weather={weather} />
       <Description weather={weather} />
       <Icon weather={weather} />

@@ -10,6 +10,7 @@ const App = () => {
     const { data } = await axios.get(
       `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`
     );
+    console.log(data.list);
   
     setWeathers(data.list);
   };
@@ -21,6 +22,8 @@ const App = () => {
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(success, error);
   };
+
+
 
   return (
     <>
