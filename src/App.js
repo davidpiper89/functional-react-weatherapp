@@ -11,7 +11,7 @@ const App = () => {
       `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=40ce40e3254302084831efa372ed8341`
     );
     console.log(data.list);
-  
+
     setWeathers(data.list);
   };
 
@@ -23,20 +23,11 @@ const App = () => {
     navigator.geolocation.getCurrentPosition(success, error);
   };
 
+  useEffect(() => {
+    getLocation();
+  }, []);
 
-
-  return (
-    <>
-      <div>
-        <h1>Your Weather</h1>
-        <button id="getMyWthr" onClick={getLocation}>
-          Get My Weather
-        </button>
-      </div>
-
-      {weathers ? <Weathers weathers={weathers} /> : ""}
-    </>
-  );
+  return <>{weathers ? <Weathers weathers={weathers} /> : ""}</>;
 };
 
 export default App;
